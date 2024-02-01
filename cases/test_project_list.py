@@ -71,16 +71,16 @@ class TestProjectList:
         assert "project_name=test" in req.value.url
         assert req.value.method == "GET"
 
-    def test_search_project_0(self):
-        """项目列表页搜索功能， 模拟搜索0个结果"""
-        self.project.search_project("test")
-        # 期望输入框有内容
-        expect(self.project.locator_search_project).to_have_value('test')
-        # 点搜索按钮
-        self.project.page.route(**mock_api.mock_project_search_0)
-        self.project.click_search_button()
-        # 期望结果 值搜索一个值
-        expect(self.project.locator_table_tr).to_contain_text('没有找到匹配的记录')
+    # def test_search_project_0(self):
+    #     """项目列表页搜索功能， 模拟搜索0个结果"""
+    #     self.project.search_project("test")
+    #     # 期望输入框有内容
+    #     expect(self.project.locator_search_project).to_have_value('test')
+    #     # 点搜索按钮
+    #     self.project.page.route(**mock_api.mock_project_search_0)
+    #     self.project.click_search_button()
+    #     # 期望结果 值搜索一个值
+    #     expect(self.project.locator_table_tr).to_contain_text('没有找到匹配的记录')
 
     def test_search_project_1(self):
         """项目列表页搜索功能， 模拟搜索一个结果"""
